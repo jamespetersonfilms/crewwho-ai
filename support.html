@@ -3,25 +3,65 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CrewWho — Support</title>
+<title>CrewWho — Support &amp; Feedback</title>
+<meta name="description" content="Get help with CrewWho, report a bug, or send feedback and feature ideas.">
 <style>
-  :root { color-scheme: light dark; }
-  body { font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; color: #1f2937; }
-  h1 { font-size: 28px; } h2 { font-size: 18px; margin-top: 28px; color: #2b5942; }
-  a { color: #2b5942; }
-  @media (prefers-color-scheme: dark) { body { background: #0b0f0d; color: #e5e7eb; } h2, a { color: #6aa585; } }
+  :root { --forest:#2b5942; --forest-d:#10241b; --moss:#6aa585; --ink:#14201a; }
+  * { box-sizing:border-box; }
+  body { font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; max-width: 680px; margin: 0 auto; padding: 32px 20px 80px; color: #1f2937; }
+  h1 { font-size: 30px; letter-spacing:-.02em; } h2 { font-size: 19px; margin-top: 34px; color: var(--forest); }
+  a { color: var(--forest); }
+  .lead { color:#4b5e54; }
+  .card { background:#f6f9f7; border:1px solid #e3ebe6; border-radius:18px; padding:22px; margin-top:18px; }
+  .field { margin-bottom:14px; }
+  .field label { display:block; font-size:13px; font-weight:700; margin-bottom:6px; }
+  .field input, .field select, .field textarea { width:100%; font:inherit; font-size:16px; padding:12px 14px; border-radius:12px; border:1px solid #cfe0d6; background:#fff; color:var(--ink); }
+  .field textarea { min-height:120px; resize:vertical; }
+  .submit { width:100%; background:var(--forest); color:#fff; font-weight:800; font-size:16px; border:0; border-radius:999px; padding:15px; cursor:pointer; }
+  .submit:hover { background:var(--forest-d); }
+  .faq p { margin:10px 0; }
+  .foot { margin-top:34px; font-size:14px; }
+  @media (prefers-color-scheme: dark) {
+    body { background:#0b0f0d; color:#e5e7eb; } h2,a { color:var(--moss); } .lead{color:#9fb3a8;}
+    .card { background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.12); }
+    .field input,.field select,.field textarea { background:#0f1512; color:#e5e7eb; border-color:rgba(255,255,255,.18); }
+  }
 </style>
 </head>
 <body>
-<h1>CrewWho Support</h1>
-<p>Questions, bugs, or ideas — email <a href="mailto:james@jamespetersonfilms.com?subject=CrewWho%20Support">james@jamespetersonfilms.com</a>. We aim to reply within 2 business days.</p>
+<h1>Support &amp; feedback</h1>
+<p class="lead">Bugs, questions, or ideas — send them straight to us. There are no accounts, so please include the email you'd like us to reply to. We aim to reply within 2 business days.</p>
+
+<div class="card">
+  <form name="support" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+    <input type="hidden" name="form-name" value="support">
+    <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+    <div class="field"><label for="s-type">What's this about?</label>
+      <select id="s-type" name="type">
+        <option>Feedback / idea</option>
+        <option>Bug report</option>
+        <option>Feature request</option>
+        <option>Account / data help</option>
+        <option>Something else</option>
+      </select>
+    </div>
+    <div class="field"><label for="s-name">Name (optional)</label><input id="s-name" name="name" type="text" autocomplete="name"></div>
+    <div class="field"><label for="s-email">Your email</label><input id="s-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+    <div class="field"><label for="s-msg">Message</label><textarea id="s-msg" name="message" placeholder="What happened, or what would you love to see? If it's a bug, tell us your iPhone model and the steps." required></textarea></div>
+    <button class="submit" type="submit">Send to CrewWho →</button>
+  </form>
+</div>
+
+<p class="lead" style="margin-top:14px;font-size:13.5px;">Prefer email? Write <a href="mailto:james@jamespetersonfilms.com?subject=CrewWho%20Support">james@jamespetersonfilms.com</a>.</p>
 
 <h2>Common questions</h2>
-<p><b>My call sheet didn't extract correctly.</b> Try the in-app Help page for capture tips (good lighting, whole page in frame). PDFs shared straight from Mail extract best. You can also pick a different AI engine under Settings → Extraction engine.</p>
-<p><b>Where is my data stored?</b> On your device. Use Settings → Data &amp; backup to export a backup file, and Snapshots to roll back mistakes.</p>
-<p><b>Does CrewWho need an account?</b> No accounts, no login. Optional integrations (Gmail, Outlook, your own AI key) run under your own accounts and can be disconnected anytime.</p>
-<p><b>How do I delete my data?</b> Delete jobs in-app, or delete the app — everything it stored goes with it. There is nothing on our servers to delete.</p>
+<div class="faq">
+  <p><b>My call sheet didn't extract correctly.</b> Check the in-app Help for capture tips (good light, whole page in frame). PDFs shared straight from Mail extract best. You can also switch the AI engine in Settings — On-device AI (Apple Intelligence) or your own AI key are the most accurate.</p>
+  <p><b>Where is my data stored?</b> On your device. Use Settings → Data &amp; backup to export a backup file, and Snapshots to roll back mistakes.</p>
+  <p><b>Does CrewWho need an account?</b> No accounts, no login. Optional integrations (Gmail, Outlook, your own AI key) run under your own accounts and disconnect anytime.</p>
+  <p><b>How do I delete my data?</b> Delete jobs in-app, or delete the app — everything it stored goes with it. There's nothing on our servers to delete.</p>
+</div>
 
-<p><a href="index.html">← CrewWho home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+<p class="foot"><a href="index.html">← CrewWho home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
 </body>
 </html>
